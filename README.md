@@ -1,9 +1,7 @@
 # Exercícios práticos de Estrutura de Dados e Análise de Algoritmos utilizando Java da Uni-BH
 
 ## Descrição
-Os exercícios foram realizados em aplicativo de console utilizando o NetBeans.
-
-Os exercícios estão descritos no arquivo *Descrição das Questões do Exercício.pdf*.
+Os exercícios foram realizados em aplicativo de console utilizando o NetBeans. Os estão descritos no arquivo *Descrição das Questões do Exercício.pdf*.
 
 ## Exercícios realizados
 
