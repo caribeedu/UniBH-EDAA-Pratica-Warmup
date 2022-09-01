@@ -4,7 +4,6 @@
  */
 package me.caribeedu.unibh.edaa.pratica.warmup.questao4;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -21,8 +20,8 @@ public class UnibhEdaaPraticaWarmupQuestao4 {
         var assaltantes = avaliarSuspeitos(valoresSuspeitos, valorAssaltanteConfesso);
         int valorTotalRoubado = 0;
         
-        for(int i=0; i<assaltantes.size(); i++) {
-            int indiceAssaltante = assaltantes.get(i);
+        for(int i=0; i<assaltantes.length; i++) {
+            int indiceAssaltante = assaltantes[i];
             
             System.out.println("O suspeito de nº " + (indiceAssaltante + 1) + " é um dos assaltantes.");
             
@@ -83,8 +82,8 @@ public class UnibhEdaaPraticaWarmupQuestao4 {
         return valorConfessado;
     }    
     
-    private static ArrayList<Integer> avaliarSuspeitos(int[] valoresSuspeitos, int valorAssaltanteConfesso) {
-        var indicesSuspeitosQueSaoAssaltantes = new ArrayList<Integer>();
+    private static int[] avaliarSuspeitos(int[] valoresSuspeitos, int valorAssaltanteConfesso) {
+        var indicesSuspeitosQueSaoAssaltantes = new int[0];
         
         for(int i=0; i<valoresSuspeitos.length; i++) {
             var valorContido = valoresSuspeitos[i];
@@ -92,9 +91,21 @@ public class UnibhEdaaPraticaWarmupQuestao4 {
             if (valorContido % 10 != 0 || valorContido < valorAssaltanteConfesso)
                 continue;
             
-            indicesSuspeitosQueSaoAssaltantes.add(i);
+            indicesSuspeitosQueSaoAssaltantes = adicionarAssaltante(indicesSuspeitosQueSaoAssaltantes, i);
         }
         
         return indicesSuspeitosQueSaoAssaltantes;
+    }
+    
+    private static int[] adicionarAssaltante(int[] indicesAssaltantes, int indiceNovoAssaltante) {
+        int novoTamanhoArray = indicesAssaltantes.length + 1;
+        var indicesAssaltantesAtualizado = new int[novoTamanhoArray];
+        
+        for(int i=0; i<indicesAssaltantes.length; i++)
+            indicesAssaltantesAtualizado[i] = indicesAssaltantes[i];
+        
+        indicesAssaltantesAtualizado[novoTamanhoArray - 1] = indiceNovoAssaltante;
+        
+        return indicesAssaltantesAtualizado;
     }
 }
